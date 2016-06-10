@@ -4,10 +4,6 @@ numbers = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 @pack.shuffle!
 @pot = 0
 
-@the_turn = []
-@the_river = []
-
-
 
 def starting_hand(cards = 2)
   @pack.pop(cards)
@@ -41,6 +37,12 @@ def place_bets
 end
 
 
+def matches
+  a = @hand[0][0]
+  b = @the_flop[0,0]
+  # winner = (a & b)
+  puts a
+end
 
 
 
