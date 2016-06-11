@@ -9,13 +9,13 @@ def starting_hand(cards = 2)
   @pack.pop(cards)
 end
 
-@hand = starting_hand
+@hand = starting_hand.sort!
 
 def the_flop(cards = 3)
   @pack.pop(cards)
 end
 
-@the_flop = the_flop 
+@the_flop = the_flop.sort! 
 
 def the_turn
   @pack.pop
@@ -38,12 +38,30 @@ end
 
 
 def matches
-  a = @hand[0][0]
-  b = @the_flop[0,0]
-  # winner = (a & b)
-  puts a
+  puts case 
+  when
+    @hand[0][0].include?(@hand[1][0])
+    "pair"  
+  when 
+    @the_flop[0][0].include?(@hand[0][0])
+    "pair"
+  when
+    @the_flop[1][0].include?(@hand[0][0])
+    "pair"
+  when 
+    @the_flop[2][0].include?(@hand[0][0])
+    "pair"
+  when
+    @the_flop[0][0].include?(@hand[1][0])
+    "pair"
+  when
+    @the_flop[1][0].include?(@hand[1][0])
+    "pair"
+  when
+    @the_flop[2][0].include?(@hand[1][0])
+    "pair"
+  end
 end
-
 
 
 
